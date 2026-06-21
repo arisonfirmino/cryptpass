@@ -8,6 +8,12 @@ def generate_password(data: PasswordRequest) -> str:
     chars = ""
     required_chars = []
 
+    if data.length < 4:
+        raise ValueError("O tamanho mínimo da senha é 4.")
+
+    if data.length > 128:
+        raise ValueError("O tamanho máximo da senha é 128.")
+
     if data.lowercase:
         chars += string.ascii_lowercase
         required_chars.append(secrets.choice(string.ascii_lowercase))
