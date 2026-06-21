@@ -3,6 +3,7 @@ from pydantic import BaseModel
 
 class PasswordResponse(BaseModel):
     password: str
+    strength: dict
 
 
 class PasswordRequest(BaseModel):
